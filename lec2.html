@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #ff0066;
+            text-align: center;
+            position: relative; /* Ensures proper positioning of absolutely positioned elements */
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .video-container {
+            margin-top: 20px;
+        }
+
+        .image {
+            position: absolute;
+            width: 20vw; /* Image size relative to the viewport width */
+            max-width: 300px; /* Maximum width of the images */
+            height: auto;
+            transform: rotate(-10deg);
+            opacity: 0.8;
+        }
+
+        .image.juliet {
+            animation: float 5s infinite;
+        }
+
+        .image.sephiroth {
+            animation: float 5s infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Position Juliet on the left side */
+        .image.juliet {
+            top: 200px;
+            left: 5%; /* Place Juliet on the left */
+        }
+
+        /* Position Sephiroth on the right side */
+        .image.sephiroth {
+            top: 350px;
+            right: 5%; /* Place Sephiroth on the right */
+        }
+    </style>
+</head>
+<body>
+    <h1>Thank You for Being Here with Me!</h1>
+    <p>You made me realize not to lay on bed and do nothing, the day you met me is my darkest era thank you. unto our next journey!</p>
+
+    <div class="video-container">
+        <video controls width="600">
+            <source src="C:\Codes\valen.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Juliet on the left side -->
+    <img src="C:\Codes\juliet_starling2.png" alt="Juliet Starling" class="image juliet">
+    <!-- Sephiroth on the right side -->
+    <img src="C:\seph.jpg" alt="Sephiroth" class="image sephiroth">
+</body>
+</html>

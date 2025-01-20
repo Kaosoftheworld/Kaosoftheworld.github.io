@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe4e1;
+      text-align: center;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ff69b4;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .input {
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #ffb6c1;
+      border-radius: 5px;
+    }
+
+    .submit {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .image {
+      position: absolute;
+      max-width: 150px;
+      transition: transform 0.5s ease-in-out; /* Smooth movement */
+      pointer-events: none; /* Prevent blocking input interaction */
+    }
+
+    .juliet {
+      left: 10%;
+      top: 20%;
+    }
+
+    .sephiroth {
+      right: 10%;
+      top: 20%;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Happy Valentine's Day!</h1>
+    <div class="question">
+      What is the app we use to vibe when not playing games?
+      <br>
+      <input type="text" id="answerInput" class="input" placeholder="Type your answer here...">
+      <br><br>
+      <button class="submit" onclick="checkAnswer()">Submit</button>
+    </div>
+  </div>
+
+  <img src="juliet_starling2.png" alt="Juliet Starling" class="image juliet">
+  <img src="sephi.png" alt="Sephiroth" class="image sephiroth">
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answerInput").value;
+      const correctAnswers = ["spotify", "Spotify", "SPOTIFY"];
+      const normalizedAnswer = input.trim().toLowerCase();
+
+      if (correctAnswers.includes(normalizedAnswer)) {
+        alert("I knew you wouldn't forget it!");
+        setTimeout(() => {
+          window.location.href = "lec2.html";
+        }, 1000);
+      } else {
+        alert("Are you serious? How can you not remember?");
+      }
+    }
+
+    function moveImagesVertically() {
+      const julietImage = document.querySelector(".juliet");
+      const sephirothImage = document.querySelector(".sephiroth");
+
+      function getRandomYPosition(element) {
+        const bodyRect = document.body.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+        const maxY = bodyRect.height - elementRect.height;
+
+        return Math.random() * maxY;
+      }
+
+      function moveElementVertically(element) {
+        const y = getRandomYPosition(element);
+        element.style.transform = `translateY(${y}px)`;
+      }
+
+      // Move both images up and down every 2 seconds
+      setInterval(() => {
+        moveElementVertically(julietImage);
+        moveElementVertically(sephirothImage);
+      }, 2000);
+    }
+
+    // Start the image movement on page load
+    moveImagesVertically();
+  </script>
+</body>
+</html>
